@@ -188,7 +188,7 @@
        
         <div class="contact-grid">
             <a href="tel:0620300908" style="background-color: #007aff; color: white;">Bel Maurice direct</a>
-            <a href="mailto:info@mauricestechhulp.nl" style="border: 1px solid #007aff; color: #007aff; background: white;">Stuur een E-mail</a>
+            <a href="mailto:maurice.hollink@gmail.com" style="border: 1px solid #007aff; color: #007aff; background: white;">Stuur een E-mail</a>
         </div>          
     </div>
 
@@ -233,7 +233,7 @@
     </div>
 </div>
 
-<!-- JavaScript voor Web-Mausje (Gekoppeld aan gemini-3.8-flash) -->
+<!-- JavaScript voor Web-Mausje -->
 <script>
     const webApiKey = "AQ.Ab8RN6IcXAqj9zgVU9fT7sGVJF8qDQXmzZQwGO0K_3Dh9N_Xnw";
 
@@ -257,13 +257,10 @@
         if (!text) return;
 
         const messagesContainer = document.getElementById('mausje-chat-messages');
-        
-        // Toon gebruikersbericht
         messagesContainer.innerHTML += `<div class="mausje-msg user">${escapeHtml(text)}</div>`;
         input.value = '';
         messagesContainer.scrollTop = messagesContainer.scrollHeight;
 
-        // Toon laadbericht
         const loadingId = 'loading-' + Date.now();
         messagesContainer.innerHTML += `<div id="${loadingId}" class="mausje-msg bot" style="color: gray;">Mausje denkt na...</div>`;
         messagesContainer.scrollTop = messagesContainer.scrollHeight;
@@ -301,4 +298,3 @@
 
 </body>
 </html>
-\
