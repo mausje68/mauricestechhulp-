@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maurice Techhulp | Computerhulp Dommelen & Valkenswaard</title>
     <link rel="icon" type="image/png" href="favicon.ico.png?v=2">
+    
+    <!-- PWA Manifest & Kleur -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#007aff">
+    <link rel="apple-touch-icon" href="favicon.ico.png">
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-JBMD6M6F00"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -181,6 +187,17 @@
        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" style="width:35px;" alt="WhatsApp Maurice">
     </a>
 </div>
+
+<!-- PWA Service Worker Registratie -->
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./sw.js')
+        .then((reg) => { console.log('ServiceWorker gelukt!', reg.scope); })
+        .catch((err) => { console.log('ServiceWorker mislukt:', err); });
+    });
+  }
+</script>
 
 </body>
 </html>
