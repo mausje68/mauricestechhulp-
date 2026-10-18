@@ -20,46 +20,107 @@
       gtag('config', 'G-JBMD6M6F00');
     </script>
     <style>
-        :root { --primary: #007aff; --bg: #f5f5f7; --text: #1d1d1f; }
-        body { font-family: -apple-system, sans-serif; background: var(--bg); color: var(--text); margin: 0; line-height: 1.6; padding-bottom: 50px; }
-        header { background: #007aff; color: white; padding: 50px 20px; text-align: center; }
-        h1 { margin: 0; font-size: 2.2em; }
-        header p { margin: 10px 0 0; opacity: 0.9; font-size: 1.1em; }
-        .container { max-width: 600px; margin: 20px auto; padding: 0 20px; }
-        .card { background: white; padding: 25px; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 20px; }
-        .profile-img { width: 140px; height: 140px; border-radius: 15px; object-fit: cover; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        h2 { color: var(--primary); font-size: 1.4em; margin-top: 0; }
-        .price { font-size: 3em; font-weight: bold; color: var(--primary); text-align: center; margin: 10px 0; }
-        .map-frame { width: 100%; height: 250px; border-radius: 15px; border: 1px solid #ddd; margin-top: 10px; }
-        ul { padding-left: 20px; }
-        .center { text-align: center; }
+        :root { 
+            --primary: #007aff; 
+            --primary-dark: #0056b3;
+            --bg: #0b0f19; 
+            --card-bg: #161b22;
+            --text: #c9d1d9; 
+            --text-heading: #ffffff;
+            --border: #30363d;
+        }
+        
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+            background: var(--bg); 
+            color: var(--text); 
+            margin: 0; 
+            line-height: 1.7; 
+            padding-bottom: 60px; 
+        }
+
+        header { 
+            background: linear-gradient(135deg, #007aff, #00c6ff); 
+            color: white; 
+            padding: 60px 20px; 
+            text-align: center; 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        h1 { margin: 0; font-size: 2.5em; font-weight: 800; letter-spacing: -0.5px; }
+        header p { margin: 12px 0 0; opacity: 0.95; font-size: 1.2em; font-weight: 400; }
+
+        .container { max-width: 700px; margin: 30px auto; padding: 0 20px; }
+
+        .card { 
+            background: var(--card-bg); 
+            padding: 30px; 
+            border-radius: 24px; 
+            border: 1px solid var(--border);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2); 
+            margin-bottom: 24px; 
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+        .card:hover {
+            border-color: var(--primary);
+        }
 
         .profile-overlap {
-            width: 100px; height: 100px; border-radius: 50%; object-fit: cover; 
-            border: 4px solid white; box-shadow: 0 4px 10px rgba(0,0,0,0.1); z-index: 2;
+            width: 110px; height: 110px; border-radius: 50%; object-fit: cover; 
+            border: 4px solid var(--card-bg); box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 2;
             position: absolute; top: 130px; left: 50%; transform: translateX(-50%);
         }
         @media (min-width: 600px) {
             .profile-overlap {
-                left: auto; right: 20px; transform: none;
+                left: auto; right: 25px; transform: none;
             }
+        }
+
+        h2 { color: var(--text-heading); font-size: 1.5em; margin-top: 0; font-weight: 700; }
+        p { color: var(--text); margin-bottom: 15px; }
+
+        .service-list {
+            list-style-type: none; padding: 0; margin: 0;
+        }
+        .service-list li {
+            margin-bottom: 16px; 
+            display: flex; 
+            align-items: flex-start;
+            background: rgba(255,255,255,0.03);
+            padding: 14px 18px;
+            border-radius: 14px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .price-badge { 
+            font-size: 3.2em; 
+            font-weight: 800; 
+            color: var(--primary); 
+            text-align: center; 
+            margin: 15px 0 5px 0; 
+            letter-spacing: -1px;
         }
 
         .contact-grid {
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            margin-top: 15px;
+            gap: 12px;
+            margin-top: 20px;
         }
         .contact-grid a {
             display: block;
-            padding: 15px;
+            padding: 16px;
             text-decoration: none;
-            border-radius: 8px;
+            border-radius: 14px;
             font-weight: bold;
             font-size: 1.1em;
             text-align: center;
             box-sizing: border-box;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+        .contact-grid a:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
         }
         @media (min-width: 480px) {
             .contact-grid {
@@ -70,8 +131,11 @@
             }
         }
 
-        #maurice-whatsapp-wrapper a:hover {
-            transform: scale(1.1);
+        footer {
+            text-align: center; 
+            padding: 40px 20px; 
+            color: #8b949e; 
+            font-size: 0.9em; 
         }
     </style>
 </head>
@@ -86,34 +150,34 @@
     
     <!-- Over Maurice Kaart -->
     <div class="card" style="padding: 0; overflow: hidden; position: relative;">
-        <img src="werkplek.jpg" alt="Maurice aan het werk" style="width: 100%; height: 180px; object-fit: cover; display: block;">
+        <img src="werkplek.jpg" alt="Maurice aan het werk" style="width: 100%; height: 200px; object-fit: cover; display: block;">
         <img src="maurice.jpg" alt="Maurice Hollink" class="profile-overlap">
         
-        <div style="padding: 24px; padding-top: 60px;">
-            <h2 style="color: var(--primary); margin: 0 0 15px 0; text-align: center;">Over Maurice Techhulp 👋</h2>
-            <p style="text-align: left; margin-bottom: 15px;">Mijn naam is <strong>Maurice Hollink</strong> en techniek is mijn passie. Of het nu gaat om een trage computer, een haperende telefoon of hulp bij uw Mac mini: ik help u graag weer op weg.</p>
-            <p style="text-align: left; margin: 0;">Als vrijwilliger in de bibliotheek van Valkenswaard help ik wekelijks mensen met hun digitale vragen. Ik leg techniek graag rustig en in begrijpelijke taal uit.</p>
+        <div style="padding: 30px; padding-top: 70px;">
+            <h2>Over Maurice Techhulp 👋</h2>
+            <p>Mijn naam is <strong>Maurice Hollink</strong> en techniek is mijn passie. Of het nu gaat om een trage computer, een haperende telefoon of hulp bij uw Mac mini: ik help u graag weer op weg.</p>
+            <p style="margin: 0;">Als vrijwilliger in de bibliotheek van Valkenswaard help ik wekelijks mensen met hun digitale vragen. Ik leg techniek graag rustig en in begrijpelijke taal uit.</p>
         </div>
     </div>
 
     <!-- Hoe ik help Kaart -->
     <div class="card">
-        <h2 style="color: #007aff; text-align: center; margin-bottom: 20px;">Hoe ik u help 🛠️</h2>
-        <ul style="list-style-type: none; padding: 0; margin: 0; line-height: 1.6;">
-            <li style="margin-bottom: 12px; display: flex; align-items: flex-start;">
-                <span style="margin-right: 10px;">✅</span>
+        <h2 style="text-align: center; margin-bottom: 24px;">Hoe ik u help 🛠️</h2>
+        <ul class="service-list">
+            <li>
+                <span style="margin-right: 12px; font-size: 1.2em;">🚀</span>
                 <span><strong>Trage apparaten:</strong> Opschonen en versnellen van uw PC, laptop of Mac.</span>
             </li>
-            <li style="margin-bottom: 12px; display: flex; align-items: flex-start;">
-                <span style="margin-right: 10px;">✅</span>
+            <li>
+                <span style="margin-right: 12px; font-size: 1.2em;">📱</span>
                 <span><strong>Mobiel & Tablet:</strong> Hulp bij iPhone, Android en het instellen van apps.</span>
             </li>
-            <li style="margin-bottom: 12px; display: flex; align-items: flex-start;">
-                <span style="margin-right: 10px;">✅</span>
+            <li>
+                <span style="margin-right: 12px; font-size: 1.2em;">💾</span>
                 <span><strong>Foto's & Bestanden:</strong> Veilig overzetten en maken van back-ups.</span>
             </li>
-            <li style="margin-bottom: 0; display: flex; align-items: flex-start;">
-                <span style="margin-right: 10px;">✅</span>
+            <li>
+                <span style="margin-right: 12px; font-size: 1.2em;">🌐</span>
                 <span><strong>Internet & Wifi:</strong> Oplossen van haperende verbindingen of printerproblemen.</span>
             </li>
         </ul>
@@ -121,69 +185,69 @@
 
     <!-- Hulp op afstand Kaart -->
     <div class="card">
-        <h2 style="color: #007aff; text-align:center;">Snel geholpen op afstand 🖥️</h2>
-        <p>Via <strong>TeamViewer</strong> kijk ik veilig met u mee op uw scherm terwijl we bellen. Voor kleine vragen hoef ik niet altijd langs te komen.</p>
+        <h2>Snel geholpen op afstand 🖥️</h2>
+        <p style="margin: 0;">Via <strong>TeamViewer</strong> kijk ik veilig met u mee op uw scherm terwijl we bellen. Voor kleine vragen hoef ik niet altijd fysiek langs te komen.</p>
     </div>
 	
     <!-- Praktische info Kaart -->
     <div class="card">
-        <h2 style="color: #007aff; text-align: center; margin-bottom: 20px;">Praktische informatie 💡</h2>
+        <h2 style="margin-bottom: 20px;">Praktische informatie 💡</h2>
         <p><strong>Komt u ook aan huis?</strong><br>
         Zeker! Ik kom graag bij u langs in <strong>Dommelen, Valkenswaard en Borkel en Schaft</strong>. Voor hulp op afstand gebruik ik TeamViewer.</p>
         
         <p style="margin-top: 15px;"><strong>Wat als het probleem niet wordt opgelost?</strong><br>
         Ik werk eerlijk: als ik het probleem niet kan verhelpen, betaalt u uiteraard <strong>niets</strong> voor de reparatie.</p>
 
-        <p style="margin-top: 15px;"><strong>Wachtwoorden bij de hand?</strong><br>
+        <p style="margin-top: 15px; margin-bottom: 0;"><strong>Wachtwoorden bij de hand?</strong><br>
         Voor veel werkzaamheden is dat handig. Ik kan u ook helpen om uw wachtwoorden voortaan veilig op te slaan.</p>
     </div>
 
     <!-- Werkgebied Kaart -->
     <div class="card">
-        <h2 style="color: #007aff; text-align:center;">Werkgebied 📍</h2>
-        <p style="text-align:center;">Werkzaam in Dommelen, Valkenswaard en Borkel en Schaft. Geen voorrijkosten in Dommelen.</p>
-        <div style="border-radius: 10px; overflow: hidden; margin-top: 15px;">
+        <h2 style="text-align:center;">Werkgebied 📍</h2>
+        <p style="text-align:center; margin-bottom: 15px;">Werkzaam in Dommelen, Valkenswaard en Borkel en Schaft. Geen voorrijkosten in Dommelen.</p>
+        <div style="border-radius: 14px; overflow: hidden; border: 1px solid var(--border);">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19914.43431636605!2d5.441054!3d51.352467!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c6d669e46a5d71%3A0xc3f98c4746679b32!2sDommelen!5e0!3m2!1snl!2snl!4v1710500000000!5m2!1snl!2snl" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
     </div>
 
     <!-- Tarieven Kaart -->
-    <div class="card center">
-        <h2 style="color: #007aff;">Mijn Diensten & Tarieven</h2>
-        <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin: 15px 0;">
-            <div style="flex: 1; min-width: 140px; padding: 10px; border: 1px solid #eee; border-radius: 8px; font-size: 0.85em; background: #f9f9f9;"><strong>Computerhulp</strong><br>Opschonen</div>
-            <div style="flex: 1; min-width: 140px; padding: 10px; border: 1px solid #eee; border-radius: 8px; font-size: 0.85em; background: #f9f9f9;"><strong>Mobiel & Tablet</strong><br>Uitleg</div>
-            <div style="flex: 1; min-width: 140px; padding: 10px; border: 1px solid #eee; border-radius: 8px; font-size: 0.85em; background: #f9f9f9;"><strong>Op afstand</strong><br>Snel & Veilig</div>
+    <div class="card" style="text-align: center;">
+        <h2>Mijn Diensten & Tarieven</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin: 20px 0;">
+            <div style="flex: 1; min-width: 130px; padding: 12px; border: 1px solid var(--border); border-radius: 12px; font-size: 0.9em; background: rgba(255,255,255,0.02);"><strong>Computerhulp</strong><br>Opschonen</div>
+            <div style="flex: 1; min-width: 130px; padding: 12px; border: 1px solid var(--border); border-radius: 12px; font-size: 0.9em; background: rgba(255,255,255,0.02);"><strong>Mobiel & Tablet</strong><br>Uitleg</div>
+            <div style="flex: 1; min-width: 130px; padding: 12px; border: 1px solid var(--border); border-radius: 12px; font-size: 0.9em; background: rgba(255,255,255,0.02);"><strong>Op afstand</strong><br>Snel & Veilig</div>
         </div>
-        <div style="font-size: 2.5em; color: #007aff; font-weight: bold;">€ 11,25</div>
-        <p>per kwartier (incl. BTW)</p>
+        <div class="price-badge">€ 11,25</div>
+        <p style="margin: 0; color: #8b949e;">per kwartier (incl. BTW)</p>
     </div>
 
     <!-- Contact Kaart -->
-    <div class="card center" style="border: none;">
-        <h2 style="color: #007aff;">Klaar om geholpen te worden? 🚀</h2>
-        <p>Neem contact op voor een afspraak:<br><strong>06-20300908</strong> of <a href="https://mail.google.com/mail/?view=cm&fs=1&to=maurice.hollink@gmail.com" target="_blank" style="color: #007aff; text-decoration: none;">maurice.hollink@gmail.com</a></p>
+    <div class="card" style="text-align: center; border: 1px solid var(--border);">
+        <h2>Klaar om geholpen te worden? 🚀</h2>
+        <p>Neem direct contact op voor een afspraak:<br><strong style="color: white; font-size: 1.2em;">06-20300908</strong> of <a href="https://mail.google.com/mail/?view=cm&fs=1&to=maurice.hollink@gmail.com" target="_blank" style="color: var(--primary); text-decoration: none;">maurice.hollink@gmail.com</a></p>
        
         <div class="contact-grid">
-            <a href="tel:0620300908" style="background-color: #007aff; color: white;">Bel Maurice direct</a>
-            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=maurice.hollink@gmail.com&su=Vraag%20over%20Maurice%20Techhulp" target="_blank" style="border: 2px solid #007aff; color: #007aff; background: white;">Stuur een E-mail</a>
+            <a href="tel:0620300908" style="background-color: var(--primary); color: white;">Bel Maurice direct</a>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=maurice.hollink@gmail.com&su=Vraag%20over%20Maurice%20Techhulp" target="_blank" style="border: 2px solid var(--primary); color: var(--primary); background: transparent;">Stuur een E-mail</a>
         </div>          
     </div>
 
 </div>
 
-<footer style="text-align: center; padding: 40px 20px; color: #666; font-size: 0.9em; width: 100%; display: block; clear: both;">
-    <p style="text-align: center !important; margin: 0 auto; display: block;">&copy; 2026 Maurice Techhulp - Dommelen & Valkenswaard</p>
+<footer>
+    <p>&copy; 2026 Maurice Techhulp - Dommelen & Valkenswaard</p>
 </footer>
 
 <!-- Zwevende WhatsApp Knop -->
 <div id="maurice-whatsapp-wrapper" style="position:fixed; bottom:30px; right:30px; z-index:9999; display:flex; align-items:center; font-family: sans-serif;">
-    <div style="background: white; padding: 10px 15px; border-radius: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); margin-right: 15px; font-size: 14px; color: #333; font-weight: bold;">
+    <div style="background: #161b22; color: white; padding: 10px 16px; border-radius: 20px; border: 1px solid var(--border); box-shadow: 0 4px 15px rgba(0,0,0,0.3); margin-right: 15px; font-size: 14px; font-weight: bold;">
         Hulp nodig? App Maurice!
     </div>
     <a href="https://wa.me/31620300908?text=Hoi%20Maurice,%20ik%20heb%20een%20vraag%20voor%20Maurice%20Techhulp!" 
        target="_blank" 
-       style="background-color:#25d366; width:65px; height:65px; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow: 0 6px 16px rgba(0,0,0,0.2); transition: transform 0.3s ease;">
+       style="background-color:#25d366; width:65px; height:65px; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow: 0 6px 20px rgba(0,0,0,0.4); transition: transform 0.3s ease;">
        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" style="width:35px;" alt="WhatsApp Maurice">
     </a>
 </div>
