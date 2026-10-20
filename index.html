@@ -23,20 +23,26 @@
         :root { 
             --primary: #0066cc; 
             --primary-dark: #004c99;
+            --primary-light: #eef6ff;
             --bg: #f8f9fa; 
             --card-bg: #ffffff;
             --text: #333333; 
             --text-heading: #1d1d1f; 
             --border: #e1e4e8;
+            --whatsapp: #25d366;
         }
         
+        html {
+            scroll-behavior: smooth;
+        }
+
         body { 
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
             background: var(--bg); 
             color: var(--text); 
             margin: 0; 
             line-height: 1.6; 
-            padding-bottom: 60px; 
+            padding-bottom: 80px; 
         }
 
         /* Top Navigatiebalk */
@@ -51,6 +57,8 @@
             top: 0;
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            flex-wrap: wrap;
+            gap: 10px;
         }
         .nav-brand {
             display: flex;
@@ -94,7 +102,7 @@
             font-size: 0.9em;
         }
 
-        /* Grote Banner Sectie (Dieper en donkerder voor perfect contrast!) */
+        /* Grote Banner Sectie */
         .hero {
             background: linear-gradient(rgba(0, 51, 102, 0.92), rgba(0, 31, 63, 0.95)), url('werkplek.jpg') no-repeat center center/cover;
             color: white;
@@ -116,6 +124,12 @@
             color: #e0e0e0;
             line-height: 1.5;
         }
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
         .hero-btn {
             background: #ffffff;
             color: var(--primary);
@@ -127,6 +141,11 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
             display: inline-block;
             transition: transform 0.2s;
+        }
+        .hero-btn.secondary {
+            background: rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+            border: 2px solid #ffffff;
         }
         .hero-btn:hover {
             transform: scale(1.05);
@@ -179,6 +198,159 @@
             border: 1px solid var(--border);
             box-shadow: 0 6px 25px rgba(0,0,0,0.05); 
             margin-bottom: 25px; 
+        }
+
+        /* Slimme Pechhulp Assistent Styling */
+        .ai-card {
+            border: 2px solid var(--primary);
+            background: linear-gradient(180deg, #ffffff 0%, #f4f9ff 100%);
+        }
+        .ai-badge {
+            display: inline-block;
+            background: var(--primary-light);
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 0.85em;
+            padding: 5px 12px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+            border: 1px solid #cce3ff;
+        }
+        .ai-options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 12px;
+            margin: 20px 0;
+        }
+        .ai-option-btn {
+            background: #ffffff;
+            border: 2px solid var(--border);
+            border-radius: 14px;
+            padding: 16px 12px;
+            font-size: 1em;
+            font-weight: 700;
+            color: var(--text-heading);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            text-align: center;
+            font-family: inherit;
+        }
+        .ai-option-btn span.icon {
+            font-size: 1.8em;
+        }
+        .ai-option-btn:hover, .ai-option-btn.active {
+            border-color: var(--primary);
+            background: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 102, 204, 0.12);
+        }
+        .ai-sub-options {
+            display: none;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px dashed var(--border);
+        }
+        .ai-sub-btn {
+            background: #ffffff;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 10px 16px;
+            border-radius: 20px;
+            margin: 5px 6px 5px 0;
+            font-weight: 600;
+            font-size: 0.95em;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+        .ai-sub-btn:hover, .ai-sub-btn.selected {
+            background: var(--primary);
+            color: #ffffff;
+        }
+        .ai-advice-box {
+            display: none;
+            background: #ffffff;
+            border-left: 5px solid var(--primary);
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .ai-advice-box h3 {
+            margin: 0 0 10px 0;
+            color: var(--primary-dark);
+            font-size: 1.2em;
+        }
+        .ai-custom-input-area {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+        }
+        .ai-textarea {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 14px;
+            border-radius: 12px;
+            border: 1px solid #ccc;
+            font-family: inherit;
+            font-size: 1em;
+            resize: vertical;
+            min-height: 70px;
+            margin-top: 8px;
+        }
+        .ai-textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.15);
+        }
+        .ai-action-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 15px;
+        }
+        .ai-action-btn {
+            flex: 1;
+            min-width: 200px;
+            padding: 14px 20px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1em;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            transition: opacity 0.2s, transform 0.2s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .ai-action-btn:hover {
+            opacity: 0.92;
+            transform: translateY(-1px);
+        }
+        .btn-wa {
+            background-color: var(--whatsapp);
+            color: #ffffff;
+        }
+        .btn-mail {
+            background-color: var(--primary);
+            color: #ffffff;
+        }
+        .btn-reset {
+            background: transparent;
+            color: #666;
+            border: 1px solid #ccc;
+            padding: 8px 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9em;
+            margin-top: 10px;
         }
 
         .profile-overlap {
@@ -246,6 +418,7 @@
         <span>Maurice Techhulp</span>
     </a>
     <ul class="nav-links">
+        <li><a href="#pechhulp">Pechhulp Assistent</a></li>
         <li><a href="#diensten">Diensten</a></li>
         <li><a href="#tarieven">Tarieven</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -253,11 +426,14 @@
     <a href="tel:0620300908" class="nav-cta">Bel Direct</a>
 </nav>
 
-<!-- Grote Hero Banner (Diep donkerblauw met hoog contrast) -->
+<!-- Grote Hero Banner -->
 <section class="hero">
     <h1>Persoonlijke Computerhulp</h1>
     <p>Ervaren & betrouwbare ondersteuning bij al uw pc-, laptop-, Mac- en telefoonzaken in Dommelen en omstreken.</p>
-    <a href="https://wa.me/31620300908?text=Hoi%20Maurice,%20ik%20heb%20hulp%20nodig!" target="_blank" class="hero-btn">Direct Contact via WhatsApp</a>
+    <div class="hero-buttons">
+        <a href="https://wa.me/31620300908?text=Hoi%20Maurice,%20ik%20heb%20hulp%20nodig!" target="_blank" class="hero-btn">Direct Contact via WhatsApp</a>
+        <a href="#pechhulp" class="hero-btn secondary">✨ Start Digitale Pechhulp</a>
+    </div>
 </section>
 
 <div class="container">
@@ -283,6 +459,67 @@
             <span class="feature-icon">🚀</span>
             <div class="feature-title">Snelservice</div>
             <p class="feature-desc">Komt u ook aan huis in Dommelen & Valkenswaard?</p>
+        </div>
+    </div>
+
+    <!-- NIEUW: Slimme Digitale Pechhulp Assistent (100% gratis, 0 API-kosten) -->
+    <div class="card ai-card" id="pechhulp">
+        <span class="ai-badge">✨ Direct Eerste Hulp & Diagnose</span>
+        <h2>Waar kan ik u vandaag mee helpen? 🛠️</h2>
+        <p style="margin-bottom: 10px;">Klik hieronder op het apparaat waar u een vraag of probleem mee heeft. U krijgt direct een handige eerste tip én kunt uw vraag met één klik naar Maurice doorsturen.</p>
+
+        <!-- Stap 1: Kies categorie -->
+        <div class="ai-options-grid">
+            <button type="button" class="ai-option-btn" onclick="selectCategory('pc', this)">
+                <span class="icon">💻</span>
+                <span>Computer, Laptop of Mac</span>
+            </button>
+            <button type="button" class="ai-option-btn" onclick="selectCategory('wifi', this)">
+                <span class="icon">📶</span>
+                <span>Wifi & Internet</span>
+            </button>
+            <button type="button" class="ai-option-btn" onclick="selectCategory('mobiel', this)">
+                <span class="icon">📱</span>
+                <span>Telefoon & Tablet</span>
+            </button>
+            <button type="button" class="ai-option-btn" onclick="selectCategory('printer', this)">
+                <span class="icon">🖨️</span>
+                <span>Printer & E-mail</span>
+            </button>
+            <button type="button" class="ai-option-btn" onclick="selectCategory('tv', this)">
+                <span class="icon">📺</span>
+                <span>Smart TV & Streaming</span>
+            </button>
+        </div>
+
+        <!-- Stap 2: Specifiek probleem (verschijnt na klik) -->
+        <div id="ai-sub-container" class="ai-sub-options">
+            <p style="font-weight: 700; margin-bottom: 8px; color: var(--text-heading);">Wat merkt u precies?</p>
+            <div id="ai-sub-buttons"></div>
+        </div>
+
+        <!-- Stap 3: Eerste hulp tip + Direct doorsturen naar Maurice -->
+        <div id="ai-advice-container" class="ai-advice-box">
+            <h3 id="ai-advice-title">💡 Eerste Hulp Tip van Maurice</h3>
+            <p id="ai-advice-text" style="margin-bottom: 12px;"></p>
+            <p style="margin: 0; font-size: 0.95em; color: #555;"><strong>Is het hiermee nog niet opgelost?</strong> Geen zorgen! Hieronder staat uw probleem alvast klaar om met één klik naar mij te sturen via WhatsApp of E-mail.</p>
+        </div>
+
+        <!-- Vrije invoer + Verzenden -->
+        <div class="ai-custom-input-area">
+            <label for="ai-extra-note" style="font-weight: 700; color: var(--text-heading); display: block;">
+                Uw bericht aan Maurice (wordt automatisch ingevuld of typ zelf uw vraag):
+            </label>
+            <textarea id="ai-extra-note" class="ai-textarea" placeholder="Bijv.: Mijn printer geeft een foutmelding op mijn laptop, kunt u een keertje meekijken?" oninput="updateContactLinks()"></textarea>
+            
+            <div class="ai-action-buttons">
+                <a id="ai-wa-link" href="https://wa.me/31620300908?text=Hoi%20Maurice,%20ik%20heb%20een%20vraag%20voor%20Maurice%20Techhulp!" target="_blank" class="ai-action-btn btn-wa">
+                    💬 Stuur dit via WhatsApp
+                </a>
+                <a id="ai-mail-link" href="https://mail.google.com/mail/?view=cm&fs=1&to=maurice.hollink@gmail.com&su=Hulpvraag%20Maurice%20Techhulp" target="_blank" class="ai-action-btn btn-mail">
+                    ✉️ Stuur dit per E-mail
+                </a>
+            </div>
         </div>
     </div>
     
@@ -350,6 +587,151 @@
        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" style="width:35px;" alt="WhatsApp Maurice">
     </a>
 </div>
+
+<!-- Script voor de Slimme Pechhulp Assistent -->
+<script>
+  const techData = {
+    pc: {
+      label: "Computer, Laptop of Mac",
+      issues: [
+        {
+          title: "Erg traag of loopt vast",
+          advice: "Herstart uw computer of Mac volledig via het Startmenu (of het Apple-icoontje linksboven -> Herstart). Vaak blijven er op de achtergrond updates hangen die na een herstart zijn opgelost.",
+          prefill: "Hoi Maurice, mijn computer/laptop is erg traag of loopt steeds vast. Kun jij mij hiermee helpen?"
+        },
+        {
+          title: "Vreemde melding of virus-twijfel",
+          advice: "Klik nooit op een telefoonnummer of link in een plotselinge pop-up! Sluit het venster (of zet de computer even uit) en maak eventueel met uw telefoon een foto van het scherm zodat ik mee kan kijken.",
+          prefill: "Hoi Maurice, ik krijg een vreemde melding op mijn scherm en vertrouw het niet helemaal. Kun je meekijken?"
+        },
+        {
+          title: "Updates of programma installeren",
+          advice: "Zorg dat uw laptop aan de oplader ligt voordat u een grote Windows- of macOS-update start. Lukt het inloggen of installeren niet? Dan kijk ik graag even met u mee.",
+          prefill: "Hoi Maurice, ik heb hulp nodig bij het uitvoeren van updates of het installeren van een programma."
+        }
+      ]
+    },
+    wifi: {
+      label: "Wifi & Internet",
+      issues: [
+        {
+          title: "Helemaal geen internet",
+          advice: "Haal de stekker van uw internetmodem (het kastje van bijvoorbeeld KPN of Ziggo) 30 seconden uit het stopcontact en steek hem er weer in. Na ongeveer 3 minuten zijn alle lampjes weer groen.",
+          prefill: "Hoi Maurice, mijn wifi/internet werkt niet meer. Kun jij mij helpen om dit weer werkend te krijgen?"
+        },
+        {
+          title: "Slecht bereik in huis of tuin",
+          advice: "Staat uw modem in de meterkast of achter een dikke muur? Vaak zorgt een wifi-versterker op de juiste plek direct voor een stabiele verbinding door het hele huis.",
+          prefill: "Hoi Maurice, mijn wifi-bereik valt steeds weg in huis. Kun je mij helpen met betere wifi?"
+        },
+        {
+          title: "Nieuw apparaat verbinden",
+          advice: "Het wifi-wachtwoord staat meestal op een sticker onderop of achterop uw modem. Let hierbij goed op hoofdletters en kleine letters.",
+          prefill: "Hoi Maurice, het lukt niet om mijn apparaat met de wifi te verbinden. Kun jij helpen?"
+        }
+      ]
+    },
+    mobiel: {
+      label: "Telefoon & Tablet",
+      issues: [
+        {
+          title: "Geheugen vol of traag",
+          advice: "Foto's en filmpjes die u via WhatsApp ontvangt nemen vaak ongemerkt veel ruimte in. We kunnen deze veilig overzetten naar de cloud of uw computer zodat er niets verloren gaat.",
+          prefill: "Hoi Maurice, mijn telefoon/tablet geeft aan dat het geheugen vol is of werkt traag. Kun je mij helpen?"
+        },
+        {
+          title: "Apps, WhatsApp of DigiD werkt niet",
+          advice: "Controleer in de Google Play Store of Apple App Store of er een update klaarstaat voor de app. Vaak weigert een app dienst als deze te lang niet is bijgewerkt.",
+          prefill: "Hoi Maurice, ik kom niet meer in een belangrijke app op mijn telefoon of tablet. Kun jij mij helpen?"
+        },
+        {
+          title: "Nieuwe telefoon of tablet instellen",
+          advice: "Leg uw oude én nieuwe toestel allebei aan de oplader en houd uw e-mailwachtwoord bij de hand. Ik help u graag om al uw foto's, contacten en apps veilig over te zetten!",
+          prefill: "Hoi Maurice, ik heb een nieuwe telefoon/tablet en wil graag hulp bij het instellen en overzetten van mijn gegevens."
+        }
+      ]
+    },
+    printer: {
+      label: "Printer & E-mail",
+      issues: [
+        {
+          title: "Printer print niet / staat offline",
+          advice: "Zet zowel de printer als uw computer even helemaal uit en weer aan. Controleer of de printer met hetzelfde wifi-netwerk verbonden is als uw laptop of telefoon.",
+          prefill: "Hoi Maurice, mijn printer wil niet meer printen (geeft offline of een foutmelding aan). Kun je mij helpen?"
+        },
+        {
+          title: "E-mail komt niet binnen of verstuurt niet",
+          advice: "Vaak vraagt uw e-mailprogramma opnieuw om uw wachtwoord na een beveiligingsupdate. Ik kan uw mail op al uw apparaten weer netjes voor u synchroniseren.",
+          prefill: "Hoi Maurice, mijn e-mail werkt niet goed meer. Kun jij mij helpen om dit weer in orde te maken?"
+        }
+      ]
+    },
+    tv: {
+      label: "Smart TV & Streaming",
+      issues: [
+        {
+          title: "TV-apps (zoals NLZIET, NPO, YouTube) haperen",
+          advice: "Haal de stekker van de tv of uw tv-kastje (zoals Google TV of KPN-ontvanger) 10 seconden uit het stopcontact. Daarmee wordt het geheugen van de tv ververst.",
+          prefill: "Hoi Maurice, ik heb hulp nodig met mijn Smart TV of streaming-apps. Kun je een keertje langskomen?"
+        },
+        {
+          title: "Zenders of kastje aansluiten",
+          advice: "Controleer met de 'Source' of 'Input' knop op uw afstandsbediening of de tv op het juiste HDMI-kanaal (bijvoorbeeld HDMI 1 of HDMI 2) staat ingesteld.",
+          prefill: "Hoi Maurice, ik krijg mijn tv of tv-kastje niet goed ingesteld. Kun jij mij hierbij helpen?"
+        }
+      ]
+    }
+  };
+
+  function selectCategory(catKey, btnElement) {
+    document.querySelectorAll('.ai-option-btn').forEach(btn => btn.classList.remove('active'));
+    btnElement.classList.add('active');
+
+    const subContainer = document.getElementById('ai-sub-container');
+    const subButtons = document.getElementById('ai-sub-buttons');
+    const adviceContainer = document.getElementById('ai-advice-container');
+
+    adviceContainer.style.display = 'none';
+    subButtons.innerHTML = '';
+
+    const category = techData[catKey];
+    category.issues.forEach((issue) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'ai-sub-btn';
+      btn.textContent = issue.title;
+      btn.onclick = function() {
+        document.querySelectorAll('.ai-sub-btn').forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+        showAdvice(issue);
+      };
+      subButtons.appendChild(btn);
+    });
+
+    subContainer.style.display = 'block';
+  }
+
+  function showAdvice(issue) {
+    const adviceContainer = document.getElementById('ai-advice-container');
+    const adviceText = document.getElementById('ai-advice-text');
+    const textArea = document.getElementById('ai-extra-note');
+
+    adviceText.textContent = issue.advice;
+    adviceContainer.style.display = 'block';
+    textArea.value = issue.prefill;
+    updateContactLinks();
+  }
+
+  function updateContactLinks() {
+    const textArea = document.getElementById('ai-extra-note');
+    const message = textArea.value.trim() || "Hoi Maurice, ik heb een vraag voor Maurice Techhulp!";
+    const encodedMsg = encodeURIComponent(message);
+    const encodedSubject = encodeURIComponent("Hulpvraag via mauricestechhulp.nl");
+
+    document.getElementById('ai-wa-link').href = "https://wa.me/31620300908?text=" + encodedMsg;
+    document.getElementById('ai-mail-link').href = "https://mail.google.com/mail/?view=cm&fs=1&to=maurice.hollink@gmail.com&su=" + encodedSubject + "&body=" + encodedMsg;
+  }
+</script>
 
 <!-- PWA Service Worker Registratie -->
 <script>
