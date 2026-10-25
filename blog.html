@@ -205,23 +205,13 @@
             transform: translateX(-3px);
         }
 
-        /* Algemene Kaarten */
-        .card { 
-            background: var(--card-bg); 
-            padding: 35px; 
-            border-radius: 20px; 
-            border: 1px solid var(--border);
-            box-shadow: 0 6px 25px rgba(0,0,0,0.05); 
-            margin-bottom: 25px; 
-        }
-
         /* Blog Post Kaart */
         .blog-post {
             background: var(--card-bg);
             border: 1px solid var(--border);
             border-radius: 20px;
-            padding: 30px;
-            margin-bottom: 25px;
+            padding: 35px;
+            margin-bottom: 30px;
             box-shadow: 0 6px 25px rgba(0,0,0,0.05);
             transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
         }
@@ -230,6 +220,13 @@
             border-color: var(--primary);
             box-shadow: 0 10px 30px rgba(0,0,0,0.08);
         }
+        
+        .blog-post.featured {
+            border: 2px solid var(--primary);
+            background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+            box-shadow: 0 8px 30px rgba(0, 102, 204, 0.08);
+        }
+
         .post-meta {
             display: flex;
             align-items: center;
@@ -242,62 +239,98 @@
             color: var(--primary);
             font-weight: 700;
             font-size: 0.82em;
-            padding: 4px 12px;
+            padding: 5px 14px;
             border-radius: 20px;
             border: 1px solid #cce3ff;
+        }
+        .post-badge.alert {
+            background: #fff3e0;
+            color: #e65100;
+            border-color: #ffe0b2;
         }
         .post-date {
             font-size: 0.88em;
             color: #777777;
         }
         .blog-post h2 {
-            margin: 0 0 12px 0;
-            font-size: 1.5em;
+            margin: 0 0 14px 0;
+            font-size: 1.6em;
             color: var(--text-heading);
             line-height: 1.35;
+        }
+        .blog-post h3 {
+            color: var(--primary-dark);
+            font-size: 1.25em;
+            margin: 22px 0 10px 0;
         }
         .blog-post p {
             color: var(--text);
             margin-bottom: 15px;
-            line-height: 1.65;
+            line-height: 1.7;
         }
         .blog-post ul, .blog-post ol {
-            margin: 10px 0 15px 20px;
+            margin: 12px 0 18px 22px;
             padding: 0;
         }
         .blog-post li {
-            margin-bottom: 8px;
+            margin-bottom: 10px;
+            line-height: 1.6;
         }
         .post-callout {
-            background: #fdfdfd;
-            border-left: 4px solid var(--primary);
-            padding: 14px 18px;
-            border-radius: 0 12px 12px 0;
-            margin: 15px 0;
-            background-color: var(--primary-light);
-            font-size: 0.95em;
+            background: var(--primary-light);
+            border-left: 5px solid var(--primary);
+            padding: 16px 20px;
+            border-radius: 0 14px 14px 0;
+            margin: 20px 0;
+            font-size: 0.98em;
+            color: #113355;
         }
+        .post-callout.warning {
+            background: #fff8e1;
+            border-left: 5px solid #ffa000;
+            color: #5d4037;
+        }
+
+        /* Stap-voor-stap Box */
+        .step-box {
+            background: #f8fbff;
+            border: 1px solid #d4e6ff;
+            border-radius: 14px;
+            padding: 20px 24px;
+            margin: 20px 0;
+        }
+        .step-box ol {
+            margin: 10px 0 0 20px;
+            padding: 0;
+        }
+        .step-box li {
+            margin-bottom: 10px;
+            color: #222;
+        }
+
         .post-author {
             display: flex;
             align-items: center;
-            gap: 12px;
-            margin-top: 20px;
-            padding-top: 15px;
+            gap: 14px;
+            margin-top: 25px;
+            padding-top: 18px;
             border-top: 1px dashed var(--border);
         }
         .post-author img {
-            width: 40px;
-            height: 40px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
             object-fit: cover;
+            border: 2px solid var(--primary-light);
         }
         .post-author-info {
-            font-size: 0.9em;
+            font-size: 0.92em;
             color: #555555;
         }
         .post-author-info strong {
             color: var(--text-heading);
             display: block;
+            font-size: 1.02em;
         }
 
         /* Hulp Vragen CTA Box onderaan */
@@ -306,7 +339,7 @@
             color: #ffffff;
             text-align: center;
             border-radius: 20px;
-            padding: 35px 25px;
+            padding: 40px 25px;
             margin-bottom: 30px;
             box-shadow: 0 10px 30px rgba(0, 102, 204, 0.2);
         }
@@ -395,25 +428,83 @@
         <a href="index.html" class="back-btn">
             <span>←</span> Terug naar homepage
         </a>
-        <span style="font-size: 0.9em; color: #666;">Artikelen voor senioren en beginners in Dommelen & Valkenswaard</span>
+        <span style="font-size: 0.9em; color: #666;">Artikelen voor senioren en computergebruikers in Dommelen & Valkenswaard</span>
     </div>
 
-    <!-- Artikel 1 -->
-    <article class="blog-post">
+    <!-- Uitgelicht Nieuw Artikel: WhatsApp-fraude & Veiligheid -->
+    <article class="blog-post featured">
         <div class="post-meta">
-            <span class="post-badge">🛡️ Digitale Veiligheid</span>
-            <span class="post-date">Recent bijgewerkt</span>
+            <span class="post-badge alert">⚠️ Belangrijk Veiligheidsadvies</span>
+            <span class="post-badge">📱 WhatsApp & Telefoon</span>
+            <span class="post-date">Gepubliceerd door Maurice</span>
         </div>
-        <h2>Hoe herkent u een valse pop-up of nepbericht (phishing)?</h2>
-        <p>Steeds vaker bellen mensen mij met de vraag: <em>"Maurice, er staat ineens een groot rood scherm op mijn pc dat ik direct een telefoonnummer moet bellen om een virus te verwijderen, wat moet ik doen?"</em></p>
         
-        <p>Het belangrijkste advies is: <strong>raak niet in paniek en bel het nummer nooit.</strong> Dit zijn zogeheten <em>scareware</em>-schermen die bedoeld zijn om u bang te maken zodat u een duur en onbetrouwbaar buitenlands callcenter belt.</p>
+        <h2>"Hoi pap/mam, dit is mijn nieuwe nummer": Zo herkent u WhatsApp-fraude en beschermt u uw geld en account</h2>
+        
+        <p>In mijn werk en tijdens mijn vrijwilligersspreekuur in de bibliotheek van Valkenswaard hoor ik het helaas regelmatig: iemand ontvangt een WhatsApp-berichtje dat afkomstig lijkt van een zoon, dochter of goede vriend(in). De strekking is bijna altijd hetzelfde: <em>"Mijn oude telefoon is in het water gevallen en ik heb tijdelijk een nieuw nummer. Kun je me snel even helpen met een dringende rekening?"</em></p>
+
+        <p>Dit heet <strong>hulpvraagfraude</strong> of <strong>vriend-in-noodfraude</strong>. Criminelen weten precies welke emoties ze moeten raken: bezorgdheid, hulpvaardigheid en haast. Gelukkig kunt u zich hier eenvoudig en 100% effectief tegen wapenen.</p>
+
+        <div class="post-callout warning">
+            🚨 <strong>Maurice's Nummer 1 Leefregel:</strong> Maak <u>nooit</u> geld over naar aanleiding van een berichtje op WhatsApp of sms, hoe echt het ook klinkt en hoe dringend het ook lijkt!
+        </div>
+
+        <h3>Hoe gaan de oplichters precies te werk?</h3>
+        <p>De criminelen halen vaak namen en foto's van sociale media zoals Facebook of Instagram. Daardoor klopt de profielfoto vaak én spreken ze u aan met uw eigen voornaam of met "mam/pap". Vervolgens verzinnen ze een smoes waarom ze niet kunnen bellen: <em>"Mijn microfoon doet het nog niet op dit toestel"</em> of <em>"Ik zit in een belangrijke vergadering"</em>. Vervolgens sturen ze een betaalverzoek of rekeningnummer mee met het verzoek snel een bedrag over te maken.</p>
+
+        <h3>De 4 stappen om uzelf direct te beschermen:</h3>
+        <ol>
+            <li><strong>Bel altijd het 'oude', vertrouwde telefoonnummer:</strong> Bel niet naar het nieuwe nummer dat u bericht, maar zoek in uw eigen contactenlijst het oude nummer op en bel dat. Neem degene op? Dan hoort u direct dat er niets aan de hand is. Krijgt u niemand te pakken? Maak dan <strong>niets</strong> over totdat u diegene zelf aan de lijn heeft gehad.</li>
+            <li><strong>Stel een persoonlijke controlevraag:</strong> Typ bijvoorbeeld terug: <em>"Hoe heette onze eerste hond?"</em> of <em>"Waar zijn we vorig jaar samen op vakantie geweest?"</em>. Een crimineel kan dit antwoord niet weten en haakt direct af.</li>
+            <li><strong>Vraag om een gesproken spraakberichtje:</strong> Vraag de afzender om even een audiobericht in te spreken van 5 seconden. Oplichters weigeren dit direct met allerlei uitvluchten.</li>
+            <li><strong>Sla het nummer niet zomaar op:</strong> Bewaar het nieuwe nummer niet in uw adresboek totdat u zeker weet dat het klopt.</li>
+        </ol>
+
+        <h3>Bonus: Beveilig uw eigen WhatsApp met 'Verificatie in twee stappen'</h3>
+        <p>Wist u dat criminelen ook kunnen proberen om úw WhatsApp-account over te nemen om vervolgens uw contacten om geld te vragen? U kunt dit heel eenvoudig voorkomen door een pincode (tweestapsverificatie) in te stellen. Dit duurt maar één minuut:</p>
+
+        <div class="step-box">
+            <strong>Stappenplan voor iPhone en Android:</strong>
+            <ol>
+                <li>Open WhatsApp op uw telefoon.</li>
+                <li>Ga naar <strong>Instellingen</strong> (op iPhone rechtsonder, op Android via de 3 puntjes rechtsboven).</li>
+                <li>Tik op <strong>Account</strong> en vervolgens op <strong>Verificatie in twee stappen</strong>.</li>
+                <li>Tik op <strong>Inschakelen</strong> en kies een 6-cijferige pincode die u kunt onthouden.</li>
+                <li>Vul uw eigen e-mailadres in voor het geval u de code ooit vergeet. Klaar!</li>
+            </ol>
+        </div>
 
         <div class="post-callout">
-            💡 <strong>Maurice's Gouden Regel:</strong> Een echte virusscanner of Microsoft zal u <u>nooit</u> vragen om een telefoonnummer te bellen om uw computer te deblokkeren. Sluit het venster simpelweg af met de toetscombinatie <strong>Alt + F4</strong> (of <strong>Cmd + W</strong> op een Mac).
+            💡 <strong>Heeft u toch een verdacht bericht ontvangen of twijfelt u?</strong><br>
+            Maak een schermafbeelding (screenshot) en stuur het gerust even door naar Maurice. Ik kijk graag kosteloos met u mee om u gerust te stellen.
         </div>
 
-        <p>Heeft u toch op een link geklikt of twijfelt u of er iets op uw computer is achtergebleven? Neem gerust even contact met me op; ik kijk graag veilig en vertrouwd met u mee om de computer te controleren.</p>
+        <div class="post-author">
+            <img src="maurice.jpg" alt="Maurice Hollink">
+            <div class="post-author-info">
+                <strong>Geschreven door Maurice Hollink</strong>
+                Persoonlijke computerhulp aan huis in Dommelen, Valkenswaard & Borkel en Schaft
+            </div>
+        </div>
+    </article>
+
+    <!-- Artikel 2 -->
+    <article class="blog-post">
+        <div class="post-meta">
+            <span class="post-badge">💾 Back-up & Bestanden</span>
+            <span class="post-date">Praktische Computertips</span>
+        </div>
+        <h2>Waarom een goede back-up geen luxe is (en hoe u dit simpel regelt)</h2>
+        <p>Iedereen heeft op zijn computer of telefoon onvervangbare herinneringen staan: vakantiefoto's van jaren geleden, video's van de kleinkinderen of belangrijke documenten van de belastingdienst en notaris.</p>
+        <p>Helaas gaat een harde schijf gemiddeld na 4 tot 6 jaar stuk, of raakt een telefoon kwijt of beschadigd. Als u pas nadenkt over een back-up nádat het apparaat niet meer start, is het vaak te laat of erg duur om gegevens te herstellen.</p>
+        
+        <h3>De eenvoudige 3-2-1 back-up methode voor thuis:</h3>
+        <ul>
+            <li><strong>3 kopieën:</strong> Bewaar uw belangrijke bestanden op minimaal 2 verschillende dragers (bijvoorbeeld op uw computer én op een externe USB-schijf).</li>
+            <li><strong>Automatische Cloudback-up:</strong> Voor foto's op uw telefoon is Google Foto's of Apple iCloud ideaal: zodra u thuiskomt en met de wifi verbindt, worden nieuwe foto's direct veilig opgeslagen.</li>
+            <li><strong>Koppel de externe schijf los na het kopiëren:</strong> Zo kan een eventueel computervirus of gijzelsoftware niet ook direct uw back-upschijf besmetten.</li>
+        </ul>
+        <p>Wilt u hulp bij het automatisch instellen van een back-up op een externe schijf of in de cloud? Ik help u hier graag bij!</p>
 
         <div class="post-author">
             <img src="maurice.jpg" alt="Maurice Hollink">
@@ -424,7 +515,7 @@
         </div>
     </article>
 
-    <!-- Artikel 2 -->
+    <!-- Artikel 3 -->
     <article class="blog-post">
         <div class="post-meta">
             <span class="post-badge">⚡ Computer & Laptop</span>
@@ -451,7 +542,7 @@
         </div>
     </article>
 
-    <!-- Artikel 3 -->
+    <!-- Artikel 4 -->
     <article class="blog-post">
         <div class="post-meta">
             <span class="post-badge">📶 Internet & Wifi</span>
